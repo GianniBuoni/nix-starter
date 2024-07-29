@@ -2,6 +2,7 @@
   modulesPath,
   pkgs,
   systemSettings,
+  userSettings,
   ...
 }: {
   imports = [
@@ -44,9 +45,9 @@
 
   # USER
   # Don't forget to change passwords after install
-  users.users.admin = {
+  users.users.${userSettings.userName} = {
     isNormalUser = true;
-    description = "Admin Account";
+    description = userSettings.name;
     initialPassword = "password";
     extraGroups = ["networkmanager" "wheel"];
   };
