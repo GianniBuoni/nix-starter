@@ -26,7 +26,6 @@
 
   services.openssh = {
     enable = true;
-    settings.PermitRootLogin = "yes";
   };
 
   # PACKAGES
