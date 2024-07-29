@@ -7,18 +7,19 @@
     };
   };
 
-  outputs = {self, ...} @ inputs: let
-    pkgs = inputs.nixpkgs.lib;
-    system = "x86_64-linux";
+  outputs = {nixpkgs, ...} @ inputs: let
+    inherit (import ./env.nix) systemSettings userSettings;
   in {
-    nixosConfigurations = {
-      nixos = pkgs.nixosSystem {
-        inherit system;
-        modules = [
-          inputs.disko.nixosModules.disko
-          ./configuration.nix
-        ];
+    nixosConfigurations.${systemSettings.hostName} = nixpkgs.lib.nixosSystem {
+      inherit (systemSettings) system;
+      specialArgs = {
+        inherit systemSettings;
+        inherit userSettings;
       };
+      modules = [
+        inputs.disko.nixosModules.disko
+        ./configuration.nix
+      ];
     };
   };
 }

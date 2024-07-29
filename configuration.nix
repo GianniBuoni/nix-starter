@@ -1,6 +1,7 @@
 {
   modulesPath,
   pkgs,
+  systemSettings,
   ...
 }: {
   imports = [
@@ -18,7 +19,11 @@
   };
 
   # NETWORKING AND SSH
-  networking.networkmanager.enable = true;
+  networking = {
+    inherit (systemSettings) hostName;
+    networkmanager.enable = true;
+  };
+
   services.openssh = {
     enable = true;
     settings.PermitRootLogin = "yes";
@@ -31,6 +36,8 @@
     gh
     neovim
     docker
+    docker-compose
+    neofetch
   ];
 
   # DOCKER
