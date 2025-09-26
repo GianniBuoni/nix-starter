@@ -8,7 +8,7 @@
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
-    inherit (import ./env.nix) systemSettings userSettings;
+    inherit (import ./constants.nix) systemSettings userSettings;
   in {
     nixosConfigurations.${systemSettings.hostName} = nixpkgs.lib.nixosSystem {
       inherit (systemSettings) system;
