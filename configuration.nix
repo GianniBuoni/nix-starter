@@ -7,7 +7,7 @@
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ./disk-config.nix
+    ./disk-config
   ];
 
   # GRUB BOOT
@@ -46,10 +46,10 @@
   # USER
   # Don't forget to change passwords after install
   users.users.${userSettings.userName} = {
+    inherit (userSettings) description;
     isNormalUser = true;
-    description = userSettings.name;
     initialPassword = "password";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["wheel"];
   };
 
   # NIX SETTINGS
@@ -63,5 +63,5 @@
     };
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 }

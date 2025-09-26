@@ -6,6 +6,6 @@
   };
   userSettings = {
     userName = "USER_NAME";
-    descrpition = "NAME";
+    description = "NAME";
   };
 }

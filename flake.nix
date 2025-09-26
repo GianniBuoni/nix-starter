@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,7 +12,7 @@
     inherit (import ./constants.nix) systemSettings userSettings;
   in {
     nixosConfigurations.${systemSettings.hostName} = nixpkgs.lib.nixosSystem {
-      inherit (systemSettings) system;
+      system = inputs.flake-utils.lib.system.x86_64-linux;
       specialArgs = {
         inherit systemSettings;
         inherit userSettings;
