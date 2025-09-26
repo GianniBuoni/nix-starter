@@ -1,21 +1,24 @@
-# NixOS Starter Config!
+# NixOS Starter Config
 
-This is a basic starter config for a new NixOS system. It utilizes `nixos-anywhere` and `disko` to create a barebones install of NixOS.
+Starter nixos-config using `disko` and `nixos-anywhere` to set up a basic system with disk enryption and logical volumes.
 
-#### Useful Commands:
+## Prerequisites
 
-```
-nix run github:nix-community/nixos-anywhere -- --flake '.#myconfig' nixos@<ip_address>
-```
+- Target system booted into a live ISO
+- (Optional but recomended) `ssh` from a working machine into the target system.
 
-```
-ssh-keygen -R <ip_address>
-```
+## Install using nixos-anywhere
 
-```
-nixos-rebuild switch --flake <URL to your flake> --target-host "root@<ip address>"
+```sh
+nix run github:nix-community/nixos-anywhere -- --flake <FLAKE_URL> nixos@<IP_ADDRESS>
 ```
 
-#### Useful Resources:
+## Remote rebuilding
+
+```sh
+nixos-rebuild switch --flake <FLAKE_URL> --target-host "<USER>@<IP_ADDRESS>" --remote-sudo
+```
+
+## Links:
 
 - [nixos-anywhere](https://github.com/nix-community/nixos-anywhere/blob/main/docs/quickstart.md)
