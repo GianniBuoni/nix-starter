@@ -11,4 +11,9 @@
   ];
 
   virtualisation.docker.enable = true;
+
+  programs.zsh = {
+    enable = true;
+    autosuggestions.enable = true;
+  };
 }

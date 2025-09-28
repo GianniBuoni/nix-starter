@@ -14,7 +14,7 @@ in {
     type = "EF00";
     content = {
       type = "filesystem";
-      format = "fat32";
+      format = "vfat";
       mountpoint = "/boot";
       mountOptions = ["umask=0077"];
     };
@@ -25,11 +25,10 @@ in {
     content = {
       type = "luks";
       name = "crypted";
-      settings = {
-        # point disko to your keykeyFile
-        keyFile = "/tmp/secret.key";
-        allowDiscards = true;
-      };
+      # interactive login
+      passwordFile = "/tmp/secret.key";
+      # point disko to your keykeyFile
+      settings.allowDiscards = true;
       content = {
         type = "lvm_pv";
         vg = "vg";

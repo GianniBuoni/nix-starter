@@ -11,7 +11,5 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader.systemd-boot.enable = true;
-    # initramfs
-    initrd.luks.devices.cryptroot.device = "/dev/disk/by-partlabel/disk-main-luks";
   };
 }

@@ -3,15 +3,7 @@
     inherit (systemSettings) hostName;
     useNetworkd = true;
     # use iwd for wireless network management
-    wireless.iwd = {
-      enable = true;
-      settings = {
-        Network = {EnableIPv6 = true;};
-        Settings = {
-          AutoConnect = true;
-        };
-      };
-    };
+    wireless.iwd.enable = true;
   };
 
   # enable networkd for networking
@@ -28,15 +20,9 @@
 
   services = {
     # enable resolved for DNS resolution
-    resolved = {
-      enable = true;
-      # extra settings for authenticity and encryption
-      dnssec = "true";
-      dnsovertls = "true";
-    };
+    resolved.enable = true;
     # enable SSH
-    openssh = {
-      enable = true;
-    };
+    # add more settings like trusted keys for remote rebulids
+    openssh.enable = true;
   };
 }

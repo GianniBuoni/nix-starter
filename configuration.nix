@@ -5,6 +5,7 @@
     ./boot.nix
     ./networking.nix
     ./users.nix
+    ./packages.nix
   ];
 
   # NIX SETTINGS
