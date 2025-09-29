@@ -19,7 +19,7 @@
       };
       modules = [
         inputs.disko.nixosModules.disko
-        ./configuration.nix
+        ./modules
       ];
     };
   };
