@@ -16,8 +16,8 @@
         "cd" = "z";
         "ls" = "eza --icons=always";
       };
-      syntaxHighlighting = true;
-      autosuggestions = true;
+      syntaxHighlighting.enable = true;
+      autosuggestion.enable = true;
     };
 
     # terminal programs
