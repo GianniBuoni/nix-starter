@@ -6,6 +6,7 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
@@ -19,6 +20,7 @@
       };
       modules = [
         inputs.disko.nixosModules.disko
+        inputs.home-manager.nixosModules.home-manager
         ./modules
       ];
     };

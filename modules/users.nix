@@ -11,4 +11,11 @@
     extraGroups = ["wheel"];
     shell = pkgs.zsh;
   };
+  # Home manager setup
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.${userSettings.userName} = import ./home.nix;
+    extraSpecialArgs = {inherit userSettings;};
+  };
 }
