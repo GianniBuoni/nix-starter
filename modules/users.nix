@@ -17,5 +17,6 @@
     useUserPackages = true;
     users.${userSettings.userName} = import ./home.nix;
     extraSpecialArgs = {inherit userSettings;};
+    backupFileExtension = ".hm-bak";
   };
 }
