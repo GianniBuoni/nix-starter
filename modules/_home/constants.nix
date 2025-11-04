@@ -5,8 +5,4 @@
     device = "DEVICE_NAME";
     networkDevice = "NETWORK_DEVICE_NAME";
   };
-  userSettings = {
-    userName = "USER_NAME";
-    description = "NAME";
-  };
 }
