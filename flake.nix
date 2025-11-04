@@ -6,6 +6,9 @@
   outputs = inputs: import ./outputs.nix inputs;
 
   inputs = {
+    disko = {
+      url = "github:nix-community/disko";
+    };
     flake-file = {
       url = "github:vic/flake-file";
     };
