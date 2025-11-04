@@ -1,28 +1,31 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
+  description = "GianniBuoni's nix configuration";
+
+  outputs = inputs: import ./outputs.nix inputs;
+
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
+    flake-file = {
+      url = "github:vic/flake-file";
     };
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
+    import-tree = {
+      url = "github:vic/import-tree";
+    };
+    nix-auto-follow = {
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:fzakaria/nix-auto-follow";
+    };
+    nixpkgs = {
+      url = "github:NixOs/nixpkgs?ref=nixos-unstable";
+    };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    inherit (import ./constants.nix) systemSettings userSettings;
-  in {
-    nixosConfigurations.${systemSettings.hostName} = nixpkgs.lib.nixosSystem {
-      system = inputs.flake-utils.lib.system.x86_64-linux;
-      specialArgs = {
-        inherit systemSettings;
-        inherit userSettings;
-      };
-      modules = [
-        inputs.disko.nixosModules.disko
-        inputs.home-manager.nixosModules.home-manager
-        ./modules
-      ];
-    };
-  };
 }
