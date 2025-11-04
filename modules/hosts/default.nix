@@ -3,6 +3,11 @@
     system = "x86_64-linux";
     # add to use inputs as nixosModules
     specialArgs.inputs = inputs;
-    modules = with inputs.self.modules.nixos; [nix-config boot test-host];
+    modules = with inputs.self.modules.nixos; [
+      nix-config
+      boot
+      test-host
+      global-pkgs
+    ];
   };
 }
