@@ -54,7 +54,7 @@
 in {
   flake-file.inputs.disko.url = "github:nix-community/disko";
 
-  flake.modules.nixos.test-host = {
+  flake.modules.nixos.host-test-host = {
     imports = lib.optionals (inputs ? disko) [
       inputs.disko.nixosModules.disko
     ];
