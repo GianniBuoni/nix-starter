@@ -1,5 +1,7 @@
 {
-  flake.modules.nixos.nix-config = {
+  flake.modules.nixos.nix-config = {config, ...}: let
+    hostData = config.hostData;
+  in {
     nix = {
       settings.experimental-features = ["nix-command" "flakes"];
       optimise.automatic = true;
@@ -9,6 +11,6 @@
         options = "--delete-older-than 7d";
       };
     };
-    system.stateVersion = "25.11";
+    system = {inherit (hostData) stateVersion;};
   };
 }

@@ -3,6 +3,7 @@
     flake-parts.flakeModules.modules
     flake-file.flakeModules.default
     flake-file.flakeModules.nix-auto-follow
+    home-manager.flakeModules.home-manager
   ];
   flake-file = {
     description = "GianniBuoni's nix configuration";
@@ -11,6 +12,7 @@
       flake-parts.url = "github:hercules-ci/flake-parts";
       flake-file.url = "github:vic/flake-file";
       import-tree.url = "github:vic/import-tree";
+      home-manager.url = "github:nix-community/home-manager";
     };
   };
 }

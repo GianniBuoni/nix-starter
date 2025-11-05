@@ -11,6 +11,10 @@
         type = types.str;
         default = "";
       };
+      stateVersion = mkOption {
+        description = ''Host's initial stateVersion information'';
+        type = types.str;
+      };
     };
   };
 }

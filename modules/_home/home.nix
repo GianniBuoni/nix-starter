@@ -1,10 +1,7 @@
 {userSettings, ...}: {
   home = {
-    username = userSettings.userName;
-    homeDirectory = "/home/${userSettings.userName}";
     stateVersion = "25.05";
   };
-  programs.home-manager.enable = true;
 
   # Alacritty
   programs = {
