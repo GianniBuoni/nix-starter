@@ -23,13 +23,9 @@ in {
       baseHostModule
       config.flake.modules.nixos.host-opts
     ]);
-    homeAttrs = types.submodule baseHostModule;
   in {
     nixosHost = mkOption {
       type = types.attrsOf nixosAttrs;
-    };
-    homeHost = mkOption {
-      type = types.attrsOf homeAttrs;
     };
   };
 }
