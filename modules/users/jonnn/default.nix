@@ -1,6 +1,8 @@
 {
   #instantialize home manager config
-  homeHost.jonnn = {};
+  homeHost.jonnn = {
+    stateVersion = "25.11";
+  };
 
   # replace with mkUser function?
   flake.modules.nixos.user-jonnn = {

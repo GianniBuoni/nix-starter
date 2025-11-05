@@ -17,6 +17,10 @@
             host-opts
             nix-config
             user-opts
+            {
+              system = {inherit (opts) stateVersion;};
+              inherit (opts) hostData;
+            }
           ]
           ++ [
             config.flake.modules.nixos."host-${hostname}"
