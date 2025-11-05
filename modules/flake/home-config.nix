@@ -10,6 +10,7 @@
         pkgs = config.nixpkgs {
           inherit (opts) system;
         };
+        extraSpecialArgs = inputs;
         modules = with config.flake.modules.homeManager; [
           home
         ];
