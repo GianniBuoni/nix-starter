@@ -16,6 +16,7 @@
             global-pkgs
             host-opts
             nix-config
+            user-opts
           ]
           ++ [
             config.flake.modules.nixos."host-${hostname}"
