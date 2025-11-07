@@ -1,6 +1,6 @@
 # NixOS Starter Config
 
-Starter nixos-config using `disko` and `nixos-anywhere` to set up a basic system with disk enryption and logical volumes.
+Starter nixos-config using `disko` and `nixos-anywhere` to set up a basic system with disk encryption and logical volumes.
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ nix run github:nix-community/nixos-anywhere -- --flake <FLAKE_URL> nixos@<IP_ADD
 ## Remote rebuilding
 
 ```sh
-nixos-rebuild switch --flake <FLAKE_URL> --target-host "<USER>@<IP_ADDRESS>" --remote-sudo
+nixos-rebuild switch --flake <FLAKE_URL> --target-host "<USER>@<IP_ADDRESS>" --ask-sudo
 ```
 
 ## Links:

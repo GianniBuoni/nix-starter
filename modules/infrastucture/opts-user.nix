@@ -1,6 +1,6 @@
 # Per-user options
 {
-  flake.modules.nixos.user-opts = {lib, ...}: {
+  flake.modules.nixos.opts-user = {lib, ...}: {
     options.userData = with lib; {
       userName = mkOption {
         description = ''User's name'';

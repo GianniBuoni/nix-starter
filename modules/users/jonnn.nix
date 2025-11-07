@@ -4,10 +4,12 @@
     config,
     pkgs,
     ...
-  }: let
-    userData = config.userData;
-  in {
-    users.users.${userData.userName} = {
+  }: {
+    userData = {
+      userName = "jonnn";
+    };
+
+    users.users.${config.userData.userName} = {
       isNormalUser = true;
       initialPassword = "password";
       extraGroups = ["wheel"];

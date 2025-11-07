@@ -1,6 +1,8 @@
-# Per host varaible options
+# Per host varaible options that exist on the host-level.
+# Optionn defined on the flake level and then passed down
+# to the host in `config-nixos`
 {
-  flake.modules.nixos.host-opts = {lib, ...}: {
+  flake.modules.nixos.opts-host = {lib, ...}: {
     options.hostData = with lib; {
       # required settings
       hostName = mkOption {

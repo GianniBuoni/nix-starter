@@ -2,11 +2,13 @@
   flake.modules.nixos.global-pkgs = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       curl
+      fastfetch
       git
       gh
       helix
+      lshw
       pstree
-      fastfetch
+      pciutils
     ];
 
     programs.zsh = {

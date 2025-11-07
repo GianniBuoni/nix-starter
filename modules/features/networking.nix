@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.networking = {config, ...}: let
-    hostData = config.hostData;
+    inherit (config) hostData;
   in {
     networking = {
       inherit (hostData) hostName;
@@ -15,7 +15,7 @@
       networks."25-wireless" = {
         matchConfig.Name = hostData.wirelessDevice;
         networkConfig = {
-          DHCP = "yes";
+          DHCP = "ipv4";
           IgnoreCarrierLoss = "3s";
         };
       };

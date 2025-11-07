@@ -21,7 +21,7 @@ in {
     # merge options defined for the host level
     nixosAttrs = types.submodule (mergeAttrsList [
       baseHostModule
-      config.flake.modules.nixos.host-opts
+      config.flake.modules.nixos.opts-host
     ]);
   in {
     nixosHost = mkOption {

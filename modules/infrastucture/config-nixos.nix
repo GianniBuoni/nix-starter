@@ -7,16 +7,20 @@
   flake.nixosConfigurations = let
     mkHost = hostname: opts:
       inputs.nixpkgs.lib.nixosSystem {
-        inherit (opts) system;
         # add to use inputs as nixosModules
         specialArgs.inputs = inputs;
+        pkgs = import inputs.nixpkgs {
+          inherit (opts) system;
+          config.allowUnfree = true;
+        };
         modules = with config.flake.modules.nixos;
           [
             boot
             global-pkgs
-            host-opts
+            networking
             nix-config
-            user-opts
+            opts-host
+            opts-user
             {
               system = {inherit (opts) stateVersion;};
               inherit (opts) hostData;

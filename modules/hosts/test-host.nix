@@ -4,7 +4,7 @@
     stateVersion = "25.11";
     hostData = {
       hostName = "test-host";
-      wirelessDevice = "wlan0";
+      wirelessDevice = "wlp109s0";
     };
   };
 
@@ -12,7 +12,7 @@
   flake.modules.nixos.host-test-host = {
     imports = with config.flake.modules.nixos; [
       user-jonnn
-      networking
+      redistributable-firmware
     ];
   };
 }
