@@ -1,8 +1,4 @@
-{
-  inputs,
-  lib,
-  ...
-}: let
+{config, ...}: let
   #  function to define ext4 partition
   mkExt4 = size: mountpoint: {
     inherit size;
@@ -52,10 +48,8 @@
     home = mkExt4 "80%" "/home";
   };
 in {
-  flake.modules.nixos.host-test-host = {
-    imports = lib.optionals (inputs ? disko) [
-      inputs.disko.nixosModules.disko
-    ];
+  flake.modules.nixos.disko-test-host = {
+    imports = [config.flake.modules.nixos.disko];
 
     disko.devices = {
       disk = {
