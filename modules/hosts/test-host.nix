@@ -5,6 +5,7 @@
     hostData = {
       hostName = "test-host";
       wirelessDevice = "wlp109s0";
+      users = ["jonnn"];
     };
   };
 
@@ -13,7 +14,6 @@
     imports = with config.flake.modules.nixos; [
       disko-test-host
       redistributable-firmware
-      user-jonnn
     ];
   };
 }

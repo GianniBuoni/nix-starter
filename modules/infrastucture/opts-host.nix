@@ -17,7 +17,7 @@
       };
       users = mkOption {
         description = ''List of users on the host'';
-        type = listOf types.str;
+        type = types.listOf types.str;
         default = [];
       };
     };
