@@ -8,12 +8,9 @@
       format = "ext4";
     };
   };
-  key = "hosts/test_host/luks_key";
 in {
   flake.modules.nixos.disko-test-host = {
     imports = [config.flake.modules.nixos.disko];
-
-    sops.secrets.${key} = {};
 
     disko.devices.disk.ssd = let
       # define the boot partiton
@@ -33,7 +30,7 @@ in {
         content = {
           type = "luks";
           name = "crypted";
-          passwordFile = config.sops.secrets.${key}.path;
+          passwordFile = "tmp/keyfile.key";
           settings.allowDiscards = true;
           content = {
             type = "lvm_pv";
