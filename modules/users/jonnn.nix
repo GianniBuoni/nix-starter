@@ -4,15 +4,22 @@
     config,
     pkgs,
     ...
-  }: {
+  }: let
+    userName = "jonnn";
+    key = "users.${userName}.hashed_password";
+  in {
     userData = {
-      userName = "jonnn";
+      inherit userName;
     };
 
-    users.users.${config.userData.userName} = {
+    sops.secrets.${key}.neededForUsers = true;
+
+    users.mutableUsers = false;
+
+    users.users.${userName} = {
       isNormalUser = true;
-      initialPassword = "password";
       extraGroups = ["wheel"];
+      hashedPasswordFile = config.sops.secrets.${key}.path;
       shell = pkgs.zsh;
     };
   };
