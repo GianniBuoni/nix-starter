@@ -14,6 +14,7 @@
     imports = with config.flake.modules.nixos; [
       disko-test-host
       redistributable-firmware
+      sops
     ];
   };
 }
