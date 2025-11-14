@@ -1,13 +1,12 @@
 # DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
-  description = "GianniBuoni's nix configuration";
 
   outputs = inputs: import ./outputs.nix inputs;
 
   inputs = {
-    disko = {
-      url = "github:nix-community/disko";
+    flake-aspects = {
+      url = "github:vic/flake-aspects";
     };
     flake-file = {
       url = "github:vic/flake-file";
@@ -27,14 +26,7 @@
       url = "github:fzakaria/nix-auto-follow";
     };
     nixpkgs = {
-      url = "github:NixOs/nixpkgs?ref=nixos-unstable";
-    };
-    secrets = {
-      flake = false;
-      url = "git+ssh://git@github.com/GianniBuoni/secrets.git?ref=main&shallow=1";
-    };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
+      url = "github:nixos/nixpkgs/nixpkgs-unstable";
     };
   };
 
