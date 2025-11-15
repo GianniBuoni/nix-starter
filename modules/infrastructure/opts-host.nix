@@ -8,6 +8,7 @@
       hostName = mkOption {
         description = ''Host's hostname; should match nixosHost submodule'';
         type = types.str;
+        default = "nixos-host";
       };
       system = mkOption {
         description = ''Host's hostPlatform'';
