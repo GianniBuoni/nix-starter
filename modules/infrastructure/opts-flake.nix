@@ -5,6 +5,6 @@
 }:
 with lib; {
   options.nixostHost = mkOption {
-    type = attrsOf config.flake.aspects.options.host;
+    type = types.attrsOf (types.submodule config.flake.aspects.options.host);
   };
 }
