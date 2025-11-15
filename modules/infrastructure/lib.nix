@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  config,
   ...
 }: {
   flake.lib.mkNixosHost = hostName: opts:
@@ -9,7 +10,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         # per host options
-        inputs.self.aspects.options.hosts
+        config.flake.aspects.options.hosts
         {inherit (opts) hostData;}
         # override default hosthostName with submodule name
         {hostData.hostName = lib.mkForce hostName;}
