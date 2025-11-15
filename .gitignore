@@ -1,1 +1,3 @@
-env.nix
+# direnv
+.direnv/
+.envrc

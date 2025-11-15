@@ -5,18 +5,22 @@
   ...
 }: {
   flake-file.inputs = {
-    devenv.url = "github:cachix/devenv";
-    nix2container.url = "github:nlewo/nix2container";
-    mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
+    devshell.url = "github:numtide/devshell";
   };
-  imports = [inputs.devenv.flakeModule];
+  imports = [inputs.devshell.flakeModule];
 
   flake.aspects.devShells.base = moduleWithSystem ({pkgs, ...}: {
     packages = with pkgs; [just];
-    enterTest = ''just -V'';
+    commands = [
+      {
+        help = "Test development environment.";
+        name = "enterTest";
+        command = ''just -V'';
+      }
+    ];
   });
 
-  perSystem.devenv.shells = with config.flake.aspects.devShells; {
+  perSystem.devshells = with config.flake.aspects.devShells; {
     default.imports = [base];
   };
 }
