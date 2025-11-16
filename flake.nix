@@ -31,6 +31,13 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixpkgs-unstable";
     };
+    secrets = {
+      flake = false;
+      url = "git+ssh://git@github.com/GianniBuoni/secrets.git?ref=main&shallow=1";
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+    };
   };
 
 }
