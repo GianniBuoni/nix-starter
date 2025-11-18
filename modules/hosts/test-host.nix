@@ -1,11 +1,12 @@
-{
-  nixosHost.testHost.hostData = {
+let
+  hostName = "testHost";
+in {
+  nixosHost.${hostName}.hostData = {
     wirelessDevice = "wlp109s0";
-    users = ["jonnn"];
   };
 
   flake.aspects = {aspects, ...}: {
-    testHost = {
+    ${hostName} = {
       includes = with aspects; [
         required
         hardware
@@ -13,7 +14,7 @@
       ];
 
       nixos = {};
-      testHost = {};
+      ${hostName} = {};
     };
   };
 }
