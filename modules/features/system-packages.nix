@@ -1,5 +1,5 @@
 {
-  flake.aspects.systemPackages.base = {pkgs, ...}: {
+  flake.aspects.systemPackages.nixos = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       curl
       fastfetch

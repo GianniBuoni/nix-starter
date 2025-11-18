@@ -1,5 +1,5 @@
 {
-  flake.aspects.networking.base = {config, ...}: let
+  flake.aspects.networking.nixos = {config, ...}: let
     inherit (config) hostData;
   in {
     networking = {

@@ -9,9 +9,8 @@ in {
     };
   };
 
-  flake.aspects.sops = {
+  flake.aspects.sops.nixos = {
     imports = [inputs.sops-nix.nixosModules.sops];
-
     sops = {
       defaultSopsFile = "${secretsPath}/secrets.yaml";
       validateSopsFiles = false;

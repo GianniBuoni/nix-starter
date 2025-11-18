@@ -1,5 +1,5 @@
 {
-  flake.aspects.nixConfig.base = {
+  flake.aspects.nixConfig.nixos = {
     nix = {
       settings.experimental-features = ["nix-command" "flakes"];
       optimise.automatic = true;
