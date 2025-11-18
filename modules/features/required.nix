@@ -8,6 +8,7 @@
       networking
       nixConfig
       systemPackages
+      users
     ];
   };
 }
