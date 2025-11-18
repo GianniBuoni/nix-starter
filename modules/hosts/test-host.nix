@@ -7,13 +7,9 @@
   flake.aspects = {aspects, ...}: {
     testHost = {
       includes = with aspects; [
-        boot
-        disko
+        required
         hardware
-        networking
-        nixConfig
         sops
-        systemPackages
       ];
 
       nixos = {};
