@@ -8,6 +8,7 @@
     testHost = {
       includes = with aspects; [
         boot
+        disko
         hardware
         networking
         nixConfig

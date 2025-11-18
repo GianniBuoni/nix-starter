@@ -4,20 +4,32 @@
   config,
   ...
 }: {
-  flake.lib.mkNixosHost = hostName: opts:
-    inputs.nixpkgs.lib.nixosSystem {
-      inherit (opts.hostData) system;
-      specialArgs = {inherit inputs;};
-      modules = [
-        # per host options
-        config.flake.modules.hosts.options
-        {inherit (opts) hostData;}
-        # override default hosthostName with submodule name
-        {hostData.hostName = lib.mkForce hostName;}
-        # import main host module
-        config.flake.modules.nixos.${hostName}
-        # import host specific overlays
-        config.flake.modules.${hostName}.${hostName}
-      ];
+  flake.lib = {
+    # function to define nixos host
+    mkNixosHost = hostName: opts:
+      inputs.nixpkgs.lib.nixosSystem {
+        inherit (opts.hostData) system;
+        specialArgs = {inherit inputs;};
+        modules = [
+          # per host options
+          config.flake.modules.hosts.options
+          {inherit (opts) hostData;}
+          # override default hosthostName with submodule name
+          {hostData.hostName = lib.mkForce hostName;}
+          # import main host module
+          config.flake.modules.nixos.${hostName}
+          # import host specific overlays
+          config.flake.modules.${hostName}.${hostName}
+        ];
+      };
+    # function to define ext4 partition in disko
+    mkExt4 = size: mountpoint: {
+      inherit size;
+      content = {
+        inherit mountpoint;
+        type = "filesystem";
+        format = "ext4";
+      };
     };
+  };
 }
