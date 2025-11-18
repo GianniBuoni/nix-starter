@@ -11,6 +11,8 @@
         inherit (opts.hostData) system;
         specialArgs = {inherit inputs;};
         modules = [
+          # set stateVerison
+          {system = {inherit (opts.hostData) stateVersion;};}
           # per host options
           config.flake.modules.hosts.options
           {inherit (opts) hostData;}

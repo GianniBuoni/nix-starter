@@ -15,7 +15,7 @@
         type = types.str;
         default = "x86_64-linux";
       };
-      systemState = mkOption {
+      stateVersion = mkOption {
         description = ''Host's original nixos version'';
         type = types.str;
         default = "25.11";
