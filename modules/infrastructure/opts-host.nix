@@ -26,11 +26,6 @@
         type = types.str;
         default = "";
       };
-      users = mkOption {
-        description = ''List of users on the host'';
-        type = types.listOf types.str;
-        default = [];
-      };
     };
   };
 }
