@@ -1,5 +1,5 @@
 {
-  flake.aspects.hardware.test-host = {
+  flake.aspects.hardware.testHost = {
     hardware.enableRedistributableFirmware = true;
   };
 }
