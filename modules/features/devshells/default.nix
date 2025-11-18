@@ -4,9 +4,7 @@
   config,
   ...
 }: {
-  flake-file.inputs = {
-    devshell.url = "github:numtide/devshell";
-  };
+  flake-file.inputs.devshell.url = "github:numtide/devshell";
   imports = [inputs.devshell.flakeModule];
 
   flake.aspects.devShells.base = moduleWithSystem ({pkgs, ...}: {
