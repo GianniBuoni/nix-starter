@@ -20,8 +20,6 @@
           {hostData.hostName = lib.mkForce hostName;}
           # import main host module
           config.flake.modules.nixos.${hostName}
-          # import host specific overlays
-          config.flake.modules.${hostName}.${hostName}
         ];
       };
     # function to define ext4 partition in disko

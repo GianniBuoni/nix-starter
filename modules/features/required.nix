@@ -8,7 +8,7 @@
       networking
       nixConfig
       systemPackages
-      users
+      ssh
     ];
   };
 }
