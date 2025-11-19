@@ -14,8 +14,9 @@ in {
     ${hostName} = {
       includes = with aspects; [
         required
-        sops
         hardware
+        k3s
+        sops
       ];
 
       nixos = let
