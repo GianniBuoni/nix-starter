@@ -20,7 +20,7 @@ in {
         content = {
           type = "luks";
           name = "crypted";
-          passwordFile = "tmp/keyfile.key";
+          passwordFile = "/tmp/secret.key";
           settings.allowDiscards = true;
           content = {
             type = "lvm_pv";
