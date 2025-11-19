@@ -3,9 +3,9 @@
     nixos = {
       hardware.bluetooth.enable = true;
     };
-
-    testHost = {
-      hardware.enableRedistributableFirmware = true;
+    testHost.hardware = {
+      cpu.intel.updateMicrocode = true;
+      enableAllFirmware = true;
     };
   };
 }

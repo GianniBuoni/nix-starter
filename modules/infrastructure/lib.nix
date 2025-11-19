@@ -8,8 +8,11 @@
     # function to define nixos host
     mkNixosHost = hostName: opts:
       inputs.nixpkgs.lib.nixosSystem {
-        inherit (opts.hostData) system;
         specialArgs = {inherit inputs;};
+        pkgs = import inputs.nixpkgs {
+          inherit (opts.hostData) system;
+          config.allowUnfree = true;
+        };
         modules = [
           # set stateVerison
           {system = {inherit (opts.hostData) stateVersion;};}
